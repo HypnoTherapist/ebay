@@ -132,7 +132,7 @@ class ebay_ebay(orm.TransientModel):
     def call(self, cr, uid, user, call_name, call_data=dict(), error_msg='', files=None, context=None):
         try:
             api = self.trading(cr, uid, user, call_name, context=context)
-            api.execute(call_name, call_data, files=files)
+            api.execute(call_name, call_data)
         except ConnectionError as e:
             raise orm.except_orm(_('Warning!'), _('%s: %s' % (error_msg, e)))
         except ConnectionResponseError as e:
