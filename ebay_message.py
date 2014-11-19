@@ -107,6 +107,9 @@ class ebay_message_synchronize(osv.TransientModel):
                     call_data['DetailLevel'] = 'ReturnAll'
                     error_msg = 'Get the feedback for the specified user %s' % user.name
                     reply = ebay_ebay_obj.call(cr, uid, user, 'GetFeedback', call_data, error_msg, context=context).response.reply
+                    if not reply.FeedbackDetailArray:
+                        raise osv.except_osv(_('No Message Found.'),_('No FeedbackDetailArray returned.'))
+                        
                     total_number_of_entries = int(reply.PaginationResult.TotalNumberOfEntries)
                     feedback_details = reply.FeedbackDetailArray.FeedbackDetail
                     if type(feedback_details) != list:

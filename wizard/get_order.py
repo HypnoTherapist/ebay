@@ -142,7 +142,7 @@ class get_order(osv.TransientModel):
                 reply = ebay_ebay_obj.call(cr, uid, user, 'GetOrders', call_data, error_msg, context=context).response.reply
                 has_more_orders = reply.HasMoreOrders == 'true'
                 if not reply.OrderArray:
-                    raise osv.except_osv(_('No order found!'), _('No OrderArray returned.'))
+                    raise osv.except_osv(_('No Order Found.'),_('No OrderArray returned.'))
                 orders = reply.OrderArray.Order
                 if type(orders) != list:
                     orders = [orders]

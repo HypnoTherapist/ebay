@@ -398,7 +398,7 @@ class ebay_item_sync_user(osv.TransientModel):
             has_more_items = reply.HasMoreItems == 'true'
             page_number = page_number + 1
             if not reply.ItemArray:
-                raise osv.except_osv(_('No Item found!'), _('No ItemArray returned.'))
+                raise osv.except_osv(_('No Item Found.'),_('No ItemArray returned.'))
             for item in ebay_repeatable_list(reply.ItemArray.Item):
                 sku = item.SKU if item.has_key('SKU') else ''
                 if not sku or not sku.isdigit():
