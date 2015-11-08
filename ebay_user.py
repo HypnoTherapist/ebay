@@ -128,9 +128,9 @@ class ebay_user(osv.osv):
     @staticmethod
     def get_shipping_service_type():
         return [
-            ('cnam', _('China Post Normal Air Mail')),
-            ('cnram', _('China Post Registered Air Mail')),
-            ('hkam', _('HongKong Post Normal Air Mail')),
+            ('dpd', _('DPD Classic')),
+            ('dhl', _('DHL Paket')),
+            ('ups', _('United Parcel Service')),
             ('hkram', _('HongKong Post Registered Air Mail')),
             ('sgam', _('Sing Post Normal Air Mail')),
             ('sgram', _('Sing Post Registered Air Mail')),
@@ -176,6 +176,7 @@ class ebay_user(osv.osv):
         'sandbox': fields.boolean('Sandbox'),
         'sale_site': fields.selection([
             ('0', 'US'),
+            ('1', 'Germany'),
             ('2', 'Canada'),
             ('3', 'UK'),
             ('15', 'Australia'),
@@ -213,25 +214,25 @@ class ebay_user(osv.osv):
         'ownership': 0,
         'sandbox': 0,
         'sale_site': '0',
-        'country': 'CN',
-        'location': 'ShenZhen',
-        'shipping_service': 'sgam',
+        'country': 'DE',
+        'location': 'Reutlingen',
+        'shipping_service': 'dpd',
         'after_service_7_template': '''
 Hi friend.
-  Your item has been shipped on {{ shipped_time }} by air mail,
-  and it may take about 10~20 days to arrive,
+  Your item has been shipped on {{ shipped_time }} by DPD,
+  and it may take about 1 to 3 working days to arrive,
   sometimes it may be delayed by unexpected reason like holiday,
   custom`s process, weather condition etc.
-  It may be delayed up to 35 days to arrive.
+  It may be delayed up to 7 days to arrive.
   We will be very appreciated for your patience.
-  If you have any question, feel free to contact us asap.
-  Thanks for your purchase.
+  If you have any question, feel free to contact us.
+  Thank you for your purchase.
   
   Yours Sincerely
 ''',
         'after_service_15_template': '''
 Hi friend.
-  Your item has been shipped on {{ shipped_time }} by air mail.
+  Your item has been shipped on {{ shipped_time }} by DPD.
   {{ elapse }} days have passed since your item was shipped,
   When you receive it, we sincerely hope that you will like it 
   and appreciate our customer services.
@@ -247,8 +248,8 @@ Hi friend.
 ''',
         'after_service_25_template': '''
 Hi friend.
-  Your item has been shipped on {{ shipped_time }} by air mail.
-  If you haven't received your item and this situation lasts to the 35th day,
+  Your item has been shipped on {{ shipped_time }} by DPD.
+  If you haven't received your item and this situation lasts to the 30th day,
   please do contact us. WE WILL DO OUR BEST TO SOLVE YOUR PROBLEM.
   We do not want to give you a bad buying experience even when the shipping is out of our control.
   But if you receive it, we sincerely hope you can leave us a positive comment if you like it and
@@ -327,5 +328,3 @@ Hi friend.
             return True
             
 ebay_user()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
