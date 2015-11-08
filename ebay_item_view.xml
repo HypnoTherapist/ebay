@@ -60,7 +60,7 @@
                             <group string="Selling Format">
                                 <field name="listing_type" on_change="on_change_listing_type(primary_category_id, listing_type)" attrs="{'readonly': [('state','!=','Draft')], 'invisible': [('parent_id','!=',False)]}"/>
                                 <field name="start_price"/>
-                                <field name="buy_it_now_price" attrs="{'invisible': [('listing_type','!=','Chinese')]}"/>
+                                <field name="buy_it_now_price" attrs="{'invisible': [('listing_type','!=','German')]}"/>
                                 <field name="quantity" attrs="{'readonly': [('variation_deleted','=',True),('parent_id','!=',False)]}"/>
                                 <field name="listing_duration" attrs="{'invisible': [('parent_id','!=',False)]}"/>
                             </group>
@@ -236,15 +236,15 @@
                                         <field name="revise_date"/>
                                         <field name="start_time"/>
                                         <field name="hit_count"/>
-                                        <field name="quantity_surplus" attrs="{'invisible': [('listing_type','=','Chinese')]}"/>
-                                        <field name="bid_count" attrs="{'invisible': [('listing_type','!=','Chinese')]}"/>
+                                        <field name="quantity_surplus" attrs="{'invisible': [('listing_type','=','German')]}"/>
+                                        <field name="bid_count" attrs="{'invisible': [('listing_type','!=','German')]}"/>
                                     </group>
                                     <group>
                                         <field name="time_left"/>
                                         <field name="update_date"/>
                                         <field name="end_time"/>
                                         <field name="watch_count"/>
-                                        <field name="quantity_sold" attrs="{'invisible': [('listing_type','=','Chinese')]}"/>
+                                        <field name="quantity_sold" attrs="{'invisible': [('listing_type','=','German')]}"/>
                                     </group>
                                 </group>
                             </page>
@@ -353,7 +353,7 @@
                     <filter icon="terp-check" string="Active" domain="[('state','in',('Active',))]"/>
                     <filter icon="terp-check" string="Completed" domain="[('state','in',('Completed','Ended'))]"/>
                     <separator/>
-                    <filter icon="terp-check" string="Auction" domain="[('listing_type','=','Chinese')]"/>
+                    <filter icon="terp-check" string="Auction" domain="[('listing_type','=','German')]"/>
                     <filter icon="terp-check" string="Fixed Price" domain="[('listing_type','=','FixedPriceItem')]"/>
                     <separator/>
                     <field name="name"/>
