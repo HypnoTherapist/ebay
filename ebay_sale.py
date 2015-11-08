@@ -434,5 +434,3 @@ class ebay_sale_order_transaction(osv.osv):
         }
 
 ebay_sale_order_transaction()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
