@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+## -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -35,8 +35,6 @@ import json
 
 from jinja2 import Template
 
-sys.path.insert(0, '%s/ebaysdk-python/' % os.path.dirname(__file__))
-
 from ebay_utils import *
 import ebaysdk
 from ebaysdk.trading import Connection as Trading
@@ -56,6 +54,7 @@ class ebay_ebay(orm.TransientModel):
     
     _site_id_domainname_dict = {
         '0': 'ebay.com',
+        '1': 'ebay.de',
         '2': 'ebay.ca',
         '3': 'ebay.co.uk',
         '15': 'ebay.au',
@@ -162,5 +161,3 @@ class ebay_ebay(orm.TransientModel):
         print 'local time now: ', now, now.isoformat()
 
 ebay_ebay()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
