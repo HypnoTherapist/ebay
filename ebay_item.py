@@ -53,6 +53,7 @@ class ebay_details(osv.osv):
         'name': fields.char('Name', required=True),
         'site_id': fields.selection([
             ('0', 'US'),
+            ('1', 'Germany',),
             ('2', 'Canada',),
             ('3', 'UK'),
             ('15', 'Australia'),
@@ -88,6 +89,7 @@ class ebay_category(osv.osv):
         'name': fields.char('Name', required=True),
         'category_site_id': fields.selection([
             ('0', 'US'),
+            ('1', 'Germany',),
             ('2', 'Canada',),
             ('3', 'UK'),
             ('15', 'Australia'),
@@ -682,6 +684,7 @@ GTC (only for Fixed Price)
         'listing_type': fields.selection([
             #('AdType', 'AdType'),
             ('Chinese', 'Auction'),
+            ('German', 'Auction'),
             #('CustomCode', 'CustomCode'),
             ('FixedPriceItem', 'Fixed Price'),
             #('Half', 'Half'),
@@ -758,6 +761,7 @@ Secondary value1 | Secondary value2 ...
         'description_tmpl_id': fields.many2one('ebay.item.description.template', 'Template', ondelete='set null'),
         'site': fields.selection([
             ('US', 'US'),
+            ('Germany', 'Germany',),
             ('Canada', 'Canada',),
             ('UK', 'UK'),
             ('Australia', 'Australia'),
@@ -798,15 +802,15 @@ Secondary value1 | Secondary value2 ...
         'buy_it_now_price': 19.99,
         'condition_id': 1000,
         'cross_border_trade': 'North America',
-        'country': 'CN',
-        'currency': 'USD',
+        'country': 'DE',
+        'currency': 'EUR',
         'disable_buyer_requirements': False,
         'dispatch_time_max': 2,
         'hit_counter': 'HiddenStyle',
         'include_recommendations': True,
         'listing_duration': 'GTC',
         'listing_type': 'FixedPriceItem',
-        'location': 'ShenZhen',
+        'location': 'Reutlingen',
         'quantity': 99,
         'return_policy_id': _get_default_return_policy_id,
         'shipping_details_id': _get_default_shipping_details_id,
@@ -816,7 +820,7 @@ Secondary value1 | Secondary value2 ...
         'start_price': 9.99,
         'state': 'Draft',
         'need_to_be_updated': True,
-        'site': 'US',
+        'site': 'DE',
         'description_tmpl_id': _get_default_description_tmpl_id,
         'ebay_item_category_id': _default_ebay_item_category,
     }
@@ -827,13 +831,13 @@ Secondary value1 | Secondary value2 ...
         value = dict()
         variation_invalid = False
         category = self.pool.get('ebay.category').browse(cr, uid, primary_category_id, context=context)
-        if listing_type == 'Chinese':
+        if listing_type == 'German':
             value['quantity'] = 1
-            value['listing_duration'] = 'Days_7'
+            value['listing_duration'] = 'Days_3'
         else:
             value['quantity'] = 99
             value['listing_duration'] = 'GTC'
-        if listing_type == 'Chinese' or not category.variations_enabled:
+        if listing_type == 'German' or not category.variations_enabled:
             value['variation_invalid'] = True
             value['variation'] = False
         else:
@@ -1017,7 +1021,7 @@ Secondary value1 | Secondary value2 ...
     
     def item_create(self, cr, uid, item, context=None):
         user = item.ebay_user_id
-        auction = item.listing_type == 'Chinese'
+        auction = item.listing_type == 'German'
         
         if item.description_tmpl_id and item.description_tmpl_id.template:
             template = Template(item.description_tmpl_id.template)
@@ -1701,5 +1705,3 @@ class ebay_item_description_template(osv.osv):
     }
     
 ebay_item_description_template()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
