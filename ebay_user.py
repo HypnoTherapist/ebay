@@ -128,12 +128,9 @@ class ebay_user(osv.osv):
     @staticmethod
     def get_shipping_service_type():
         return [
-            ('dpd', _('DPD Classic')),
-            ('dhl', _('DHL Paket')),
+            ('usps', _('United States Postal Service')),
+            ('fedex', _('FedEx')),
             ('ups', _('United Parcel Service')),
-            ('hkram', _('HongKong Post Registered Air Mail')),
-            ('sgam', _('Sing Post Normal Air Mail')),
-            ('sgram', _('Sing Post Registered Air Mail')),
         ]
     def _get_shipping_service_type(self, cr, uid, context=None):
         return self.get_shipping_service_type()
@@ -214,12 +211,12 @@ class ebay_user(osv.osv):
         'ownership': 0,
         'sandbox': 0,
         'sale_site': '0',
-        'country': 'DE',
-        'location': 'Reutlingen',
-        'shipping_service': 'dpd',
+        'country': 'USA',
+        'location': 'Toledo',
+        'shipping_service': 'usps',
         'after_service_7_template': '''
 Hi friend.
-  Your item has been shipped on {{ shipped_time }} by DPD,
+  Your item has been shipped on {{ shipped_time }} by USPS,
   and it may take about 1 to 3 working days to arrive,
   sometimes it may be delayed by unexpected reason like holiday,
   custom`s process, weather condition etc.
