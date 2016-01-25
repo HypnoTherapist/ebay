@@ -66,11 +66,10 @@ class ebay_ebay(orm.TransientModel):
     
     def get_ebay_sign_in_url(self, cr, uid, site_id, sandbox, ru_name, session_id, context=None):
         url = ''
-        domainname = self._get_domainname_by_site_id(self, cr, uid, site_id)
         if sandbox:
-            url = 'https://signin.sandbox.%s/ws/eBayISAPI.dll?SignIn&runame=%s&SessID=%s' % (domainname, ru_name, session_id)
+            url = 'https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=%s&SessID=%s' % (ru_name, session_id)
         else:
-            url = 'https://signin.%s/ws/eBayISAPI.dll?SignIn&runame=%s&SessID=%s' % (domainname, ru_name, session_id)
+            url = 'https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&runame=%s&SessID=%s' % (ru_name, session_id)
             
         return url
     
@@ -78,9 +77,9 @@ class ebay_ebay(orm.TransientModel):
         url = ''
         domainname = self._get_domainname_by_site_id(self, cr, uid, site_id)
         if sandbox:
-            url = 'api.sandbox.%s' % domainname
+            url = 'api.sandbox.ebay.com'
         else:
-            url = 'api.%s' % domainname
+            url = 'api.ebay.com'
             
         return url
     
