@@ -19,4 +19,25 @@
         </record>
     </data>
 </openerp>
-
+2 different files
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="res_partner_ebay_address_type" model="ir.ui.view">
+            <field name="name">res.partner.view.address_type</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='page_history']" position="before">
+                    <page string="eBay" attrs="{'invisible': [('customer','=',False)]}">
+                        <group>
+                            <field name="from_ebay"/>
+                            <field name="address_owner"/>
+                        </group>
+                    </page>
+                    <field name="from_ebay" attrs="{'invisible': [('customer','=',False)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
