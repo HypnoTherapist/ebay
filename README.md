@@ -1,21 +1,23 @@
 ebay module
 ==========
-Translated by Google:
 
-Synchronisationsnachricht
+Translated by Google :
 
-Download Bestellen
+Synchronization message
 
-Download Kundeninformationen
+Download Order
 
-Artikel herunterladen
+Download Customer Information
 
-Hochladen Produkte , mehrere eBay-Konten
+Download article
 
-Update Inventory zu eBay
+Uploading products , multiple eBay accounts
 
-Liefer Informationen bei ebay aktualisieren
+Update Inventory to eBay
 
-Ebay Verkaufsbericht, nach eBay-Konto, pro Monat
+Delivery Update information on ebay
 
-Required libraries and files: ebaysdk, ebay.yaml
+Ebay sales report , according to eBay account , per month
+
+Required libraries and files: ebaysdk , ebay.yaml
+
