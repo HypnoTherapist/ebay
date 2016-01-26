@@ -3,9 +3,9 @@ ebay module
 
 Translated by Google :
 
-Synchronization message
+Synchronization Messages
 
-Download Order
+Download Orders
 
 Download Customer Information
 
@@ -20,4 +20,3 @@ Delivery Update information on ebay
 Ebay sales report , according to eBay account , per month
 
 Required libraries and files: ebaysdk , ebay.yaml
-
