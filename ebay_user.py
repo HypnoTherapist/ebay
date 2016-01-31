@@ -182,7 +182,7 @@ class ebay_user(osv.osv):
         'app_id': fields.char('AppID', size=64),
         'dev_id': fields.char('DevID', size=64),
         'cert': fields.char('CERT', size=64),
-        'ru_name': fields.text('RuName, size=1024'),
+        'ru_name': fields.text('RuName', size=1024),
         # Auth info, get from FetchToken
         'ebay_auth_token': fields.char('eBayAuthToken', readonly=True),
         'hard_expiration_time': fields.datetime('HardExpirationTime', readonly=True),
