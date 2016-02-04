@@ -684,7 +684,7 @@ GTC (only for Fixed Price)
         'listing_type': fields.selection([
             #('AdType', 'AdType'),
             ('Chinese', 'Auction'),
-            ('German', 'Auction'),
+            ('German', 'Auction/ Best Offer'),
             #('CustomCode', 'CustomCode'),
             ('FixedPriceItem', 'Fixed Price'),
             #('Half', 'Half'),
